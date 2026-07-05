@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Imprint</title>
+
+  <!-- CSS-Datei -->
+  <link rel="stylesheet" href="/index.css" />
+</head>
+<body>
+     <div className="app">
+      <header className="hero">
+        <div className="center">
+          <h1>Moratility Plugin</h1>
+          <img
+            src="/pictures/mortality.jpg"
+            alt="Beschreibung des Bildes"
+            className="small-image"
+          />
+
+          <p>
+            Mortality is a feature-rich PvP plugin for Paper 1.21 combining a
+            unique heart system, combat-log protection, teams, and a mention
+            system.
+          </p>
+          <br></br>
+          <h2 className="red">The plugin is still in development.</h2>
+          <a
+            href="https://modrinth.com/plugin/mortality"
+            className="download-btn"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Download
+          </a>
+        </div>
+      </header>
+
+      <section className="container">
+        <h2>Features</h2>
+        <div className="features">
+          <div className="card">
+            <h3>Heart System</h3>
+            <p>
+              Every player starts with 3 lives. Dying in combat costs one heart.
+              Reaching 0 hearts kicks the player from the server. Admins can
+              adjust hearts with /sethearts.
+            </p>
+          </div>
+          <div className="card">
+            <h3>Combat System</h3>
+            <p>
+              Hitting another player starts a 30-second combat timer, extended
+              by further damage. A boss bar displays the remaining combat time
+              at all times.
+            </p>
+          </div>
+          <div className="card">
+            <h3>Combat-Log Protection</h3>
+            <p>
+              If a player disconnects during combat, a Mannequin NPC
+              automatically spawns in their place, wearing their armor and
+              holding their items. Any damage dealt to the NPC is applied to the
+              player upon rejoin.
+            </p>
+          </div>
+          <div className="card">
+            <h3>Team System</h3>
+            <p>
+              Create teams with a custom name, display name, and color. Invite
+              players, chat privately via /tc or the # prefix, and manage
+              everything through /team.
+            </p>
+          </div>
+          <div className="card">
+            <h3>Mention System</h3>
+            <p>
+              Typing an online player's name in chat highlights it in yellow and
+              sends them a sound notification. The sound can be toggled
+              per-player via /settings.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
