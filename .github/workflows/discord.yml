@@ -27,19 +27,24 @@ jobs:
 
       - name: Send Discord message via Bot
         run: |
-          curl -X POST "https://discord.com/api/v10/channels/1523330691121676429/messages" \
-          -H "Authorization: Bot ${{ secrets.DISCORD_BOT_TOKEN }}" \
-          -H "Content-Type: application/json" \
-          -d "{
-            \"content\": \"<@&1505568359683592223>\",
-            \"embeds\": [
-              {
-                \"title\": \"Website Plugin Update\",
-                \"description\": \"**New update available!**\\n\\nVersion: **${VERSION}**\\n\\n**Changelog:**\\n${MESSAGE}\",
-                \"color\": 5763719,
-                \"footer\": {
-                  \"text\": \"Website • https://kittys-plugins.net"
+          JSON=$(jq -n \
+            --arg version "$VERSION" \
+            --arg message "$MESSAGE" \
+            '{
+              content: "<@&1505568359683592223>",
+              embeds: [
+                {
+                  title: "Website Plugin Update",
+                  description: ("**Neue Version verfügbar!**\n\nVersion: **" + $version + "**\n\n**Changelog:**\n" + $message),
+                  color: 5763719,
+                  footer: {
+                    text: "Website • https://kittys-plugins.net"
+                  }
                 }
-              }
-            ]
-          }"
+              ]
+            }')
+
+          curl -X POST "https://discord.com/api/v10/channels/1523330691121676429/messages" \
+            -H "Authorization: Bot ${{ secrets.DISCORD_BOT_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            -d "$JSON"
