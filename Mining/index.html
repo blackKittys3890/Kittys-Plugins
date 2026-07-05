@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Imprint</title>
+
+    <!-- CSS-Datei -->
+    <link rel="stylesheet" href="/index.css" />
+  </head>
+  <body>
+    <div className="app">
+      <header className="hero">
+        <div className="center">
+          <h1>Mining Simulator</h1>
+          <img
+            src="/pictures/mining.jpg"
+            alt="Beschreibung des Bildes"
+            className="small-image"
+          />
+          <p>
+            A lightweight, feature-rich mining plugin with auto-respawn zones, a
+            villager-based shop system, and per-player economy.
+          </p>
+
+          <a
+            href="https://modrinth.com/plugin/mining-simulator"
+            className="download-btn"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Download
+          </a>
+        </div>
+      </header>
+
+      <section className="container">
+        <h2>Features</h2>
+        <div className="features">
+          <div className="card">
+            <h3>Auto-respawn zones</h3>
+            <p>Broken blocks regenerate after a configurable delay</p>
+          </div>
+          <div className="card">
+            <h3>Weighted block composition</h3>
+            <p>
+              Any number of materials with individual weights can be assigned
+              per zone
+            </p>
+          </div>
+          <div className="card">
+            <h3>Wooden axe selection</h3>
+            <p>
+              Create zones without WorldEdit: left-click = Pos1, right-click =
+              Pos2
+            </p>
+          </div>
+          <div className="card">
+            <h3>WorldEdit compatibility</h3>
+            <p>
+              When WorldEdit is installed, its selection takes priority
+              automatically; no conflicts
+            </p>
+          </div>
+          <div className="card">
+            <h3>Villager shop system</h3>
+            <p>
+              Admins spawn shop villagers, configure trades via drag-and-drop
+              GUI (Shift+Right-click), players trade via the native merchant
+              interface
+            </p>
+          </div>
+          <div className="card">
+            <h3>Coin economy</h3>
+            <p>Lightweight internal currency system with persistent storage</p>
+          </div>
+          <div className="card">
+            <h3>Multilingual</h3>
+            <p>
+              Players choose their language via /lang &lt;de|en&gt;; all
+              messages are stored in editable YAML files
+            </p>
+          </div>
+          <div className="card">
+            <h3>No required dependencies</h3>
+            <p>WorldEdit is optional</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="container">
+        <h2>Commands</h2>
+
+        <div className="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Command</th>
+                <th>Description</th>
+                <th>Permission</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>/mine setzone &lt;name&gt;</td>
+                <td>Save current selection as a mine zone</td>
+                <td>miningsim.admin</td>
+              </tr>
+              <tr>
+                <td>
+                  /mine setblock &lt;zone&gt; &lt;MATERIAL&gt; &lt;weight&gt;
+                </td>
+                <td>Add a block to a zone</td>
+                <td>miningsim.admin</td>
+              </tr>
+              <tr>
+                <td>/mine removeblock &lt;zone&gt; &lt;MATERIAL&gt;</td>
+                <td>Remove a block from a zone</td>
+                <td>miningsim.admin</td>
+              </tr>
+              <tr>
+                <td>/mine reset &lt;zone&gt;</td>
+                <td>Manually reset a zone</td>
+                <td>miningsim.admin</td>
+              </tr>
+              <tr>
+                <td>/mine info [zone]</td>
+                <td>Display zones and their composition</td>
+                <td>miningsim.admin</td>
+              </tr>
+              <tr>
+                <td>/mshop spawn</td>
+                <td>Spawn a shop villager at current location</td>
+                <td>miningsim.admin</td>
+              </tr>
+              <tr>
+                <td>/mshop remove</td>
+                <td>Remove the nearest shop villager</td>
+                <td>miningsim.admin</td>
+              </tr>
+              <tr>
+                <td>/bal</td>
+                <td>Display your coin balance</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>/lang &lt;de|en&gt;</td>
+                <td>Set your preferred language</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
