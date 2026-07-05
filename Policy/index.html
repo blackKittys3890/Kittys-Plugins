@@ -9,15 +9,22 @@
     <link rel="stylesheet" href="/index.css" />
   </head>
   <body>
-    <div class="sidebar">
-      <h2>Menu</h2>
+    <button class="hamburger" onclick="toggleSidebar()">☰</button>
+
+    <div id="sidebar" class="sidebar">
       <a href="/">Home</a>
       <a href="/Challenge">Challenge</a>
-      <a href="/Mortality">Mortality</a>
       <a href="/Mining">Mining</a>
       <a href="/Imprint">Imprint</a>
       <a href="/Policy">Privacy Policy</a>
     </div>
+
+    <div
+      id="overlay"
+      class="overlay"
+      style="display: none"
+      onclick="toggleSidebar()"
+    ></div>
     <div class="legal-page">
       <h1>Privacy Policy</h1>
 
@@ -115,5 +122,19 @@
         </a>
       </nav>
     </footer>
+        <script>
+      function toggleSidebar() {
+        const sidebar = document.getElementById("sidebar");
+        const overlay = document.getElementById("overlay");
+
+        sidebar.classList.toggle("open");
+
+        if (sidebar.classList.contains("open")) {
+          overlay.style.display = "block";
+        } else {
+          overlay.style.display = "none";
+        }
+      }
+    </script>
   </body>
 </html>

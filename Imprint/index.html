@@ -150,5 +150,19 @@
         </a>
       </nav>
     </footer>
+        <script>
+      function toggleSidebar() {
+        const sidebar = document.getElementById("sidebar");
+        const overlay = document.getElementById("overlay");
+
+        sidebar.classList.toggle("open");
+
+        if (sidebar.classList.contains("open")) {
+          overlay.style.display = "block";
+        } else {
+          overlay.style.display = "none";
+        }
+      }
+    </script>
   </body>
 </html>
