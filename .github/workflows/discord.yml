@@ -31,11 +31,11 @@ jobs:
             --arg version "$VERSION" \
             --arg message "$MESSAGE" \
             '{
-              content: "<@&1505568359683592223>",
+              content: "<@&1523330739335205014>",
               embeds: [
                 {
-                  title: "Website Plugin Update",
-                  description: ("**Neue Version verfügbar!**\n\nVersion: **" + $version + "**\n\n**Changelog:**\n" + $message),
+                  title: "Website Update",
+                  description: ("**New Version available!**\n\nVersion: **" + $version + "**\n\n**Changelog:**\n" + $message),
                   color: 5763719,
                   footer: {
                     text: "Website • https://kittys-plugins.net"
