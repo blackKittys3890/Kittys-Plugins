@@ -13,14 +13,6 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v4
 
-      - name: Read version
-        run: |
-          if [ -f version.txt ]; then
-            echo "VERSION=$(cat version.txt)" >> $GITHUB_ENV
-          else
-            echo "VERSION=unknown" >> $GITHUB_ENV
-          fi
-
       - name: Set commit message
         run: |
           echo "MESSAGE=${{ github.event.head_commit.message || 'No commit message' }}" >> $GITHUB_ENV
@@ -28,14 +20,13 @@ jobs:
       - name: Send Discord message via Bot
         run: |
           JSON=$(jq -n \
-            --arg version "$VERSION" \
             --arg message "$MESSAGE" \
             '{
               content: "<@&1523330739335205014>",
               embeds: [
                 {
                   title: "Website Update",
-                  description: ("**New Version available!**\n\nVersion: **" + $version + "**\n\n**Changelog:**\n" + $message),
+                  description: ("**New Version available!**\n\nVersion: **" + "**\n\n**Changelog:**\n" + $message),
                   color: 5763719,
                   footer: {
                     text: "Website • https://kittys-plugins.net"
