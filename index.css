@@ -1,3 +1,7 @@
+/* ==========================================================================
+   1. URSPRÜNGLICHES DESIGN (BESTEHENDE SEITEN & SIDEBAR)
+   ========================================================================== */
+
 * {
   margin: 0;
   padding: 0;
@@ -24,35 +28,26 @@ body {
   top: 0;
   height: 100%;
   width: 240px;
-
   background: #111827; /* dunkles modernes blau */
   color: white;
-
   padding: 60px 20px 20px;
-
   transform: translateX(-100%);
   transition: transform 0.3s ease;
-
   z-index: 1000;
-
   display: flex;
   flex-direction: column;
   gap: 15px;
-
   border-right: 1px solid rgba(255,255,255,0.08);
 }
 
 /* Links */
 .sidebar a {
   color: #e5e7eb;
-
   text-decoration: none;
   font-size: 17px;
   font-weight: 500;
-
   padding: 12px 14px;
   border-radius: 10px;
-
   transition: 0.2s ease;
 }
 
@@ -60,7 +55,6 @@ body {
 .sidebar a:hover {
   background: rgba(167,139,250,0.15);
   color: #c4b5fd;
-
   transform: translateX(4px);
 }
 
@@ -164,21 +158,15 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-
   margin-top: 35px;
-
   padding: 16px 34px;
   border-radius: 14px;
-
   color: white;
   font-size: 18px;
   font-weight: bold;
   text-decoration: none;
-
   background: linear-gradient(135deg,#4f46e5,#7c3aed);
-
   box-shadow: 0 10px 30px rgba(124,58,237,.4);
-
   transition: 0.25s ease;
 }
 
@@ -280,13 +268,10 @@ footer {
   max-width: 850px;
   margin: 80px auto;
   padding: 40px;
-
   background: #1e293b;
   color: #e5e7eb;
-
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 18px;
-
   line-height: 1.7;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
 }
@@ -344,42 +329,29 @@ footer {
   margin: 10px 0;
 }
 
-/* Mobile */
+/* Mobile Responsiveness for Old Elements */
 @media (max-width: 768px) {
   .legal-page {
     margin: 40px 15px;
     padding: 25px;
   }
-
   .legal-page h1 {
     font-size: 32px;
   }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
   .hero h1 {
     font-size: 48px;
   }
-
   .hero p {
     font-size: 17px;
   }
 }
 
+
 /* ==========================================================================
-   ADDITIONS FOR KITTY'S PLUGINS (MINECRAFT & MODRINTH THEME)
+   2. NEUE ERWEITERUNGEN (NUR FÜR DIE MINECRAFT-PLUGIN-MAIN-PAGE)
    ========================================================================== */
 
-/* Brand & Dynamic Color Variables override/additions */
-:root {
-  --modrinth-green: #00af5c;
-  --modrinth-glow: rgba(0, 175, 92, 0.3);
-  --github-dark: #24292e;
-  --discord-blue: #5865f2;
-}
-
-/* Hero Button Group layout */
+/* Abstandhalter für die Buttons in deiner .hero Sektion */
 .hero .btn-group {
   display: flex;
   justify-content: center;
@@ -388,72 +360,99 @@ footer {
   margin-top: 30px;
 }
 
-/* Unified Platform Buttons (Modrinth, GitHub, Discord) */
+/* Neue Basis für Plattform-Buttons (verhindert Konflikte mit .download-btn) */
 .platform-btn {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 14px 28px;
-  border-radius: 12px;
-  color: white;
-  font-size: 16px;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: 10px;
+  color: white !important; /* Erzwingt weiße Schriftfarbe */
+  font-size: 15px;
   font-weight: 600;
   text-decoration: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  transition: all 0.2s ease;
   border: none;
   cursor: pointer;
 }
 
 .platform-btn:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
   filter: brightness(1.1);
 }
 
-.platform-btn:active {
-  transform: scale(0.98);
-}
+/* Modrinth, GitHub & Discord Farben */
+.btn-modrinth { background: #00af5c; box-shadow: 0 4px 12px rgba(0, 175, 92, 0.2); }
+.btn-github   { background: #24292e; border: 1px solid rgba(255,255,255,0.1); }
+.btn-discord  { background: #5865f2; box-shadow: 0 4px 12px rgba(88, 101, 242, 0.2); }
 
-/* Platform Colors */
-.btn-modrinth {
-  background: var(--modrinth-green);
-  box-shadow: 0 8px 24px var(--modrinth-glow);
-}
-
-.btn-github {
-  background: var(--github-dark);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-}
-
-.btn-discord {
-  background: var(--discord-blue);
-  box-shadow: 0 8px 24px rgba(88, 101, 242, 0.3);
-}
-
-/* Plugin Grid Layout overrides for showcase */
+/* Grid-System speziell für deine Plugins (behebt das Überlappen aus grafik.png) */
 .plugin-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
   gap: 30px;
-  margin-top: 20px;
+  margin: 30px 0 50px 0;
+  text-align: left; /* Überschreibt zentrierten Text aus Hero */
 }
 
-/* Badges / Tags for Version and Server Types */
+/* Neue eigene Kachel-Klasse, damit .card der anderen Seiten heile bleibt */
+.plugin-card {
+  background: #1e293b;
+  padding: 30px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, .05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 320px; 
+  transition: transform 0.25s, background 0.25s;
+}
+
+.plugin-card:hover {
+  transform: translateY(-5px);
+  background: #243247;
+}
+
+.plugin-card h3 {
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+  color: #a78bfa;
+}
+
+.plugin-card p {
+  color: #94a3b8;
+  font-size: 0.95rem;
+  margin-bottom: 25px;
+  flex-grow: 1; /* Schiebt die Buttons automatisch sauber ans Kartenende */
+}
+
+/* Button-Anordnung innerhalb der Plugin-Karten */
+.plugin-card-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.plugin-card-actions .platform-btn {
+  padding: 10px 14px;
+  font-size: 14px;
+}
+
+/* Minecraft Tags (Version & Software) */
 .tag-group {
   display: flex;
   gap: 8px;
-  margin: 12px 0 20px 0;
+  margin-bottom: 15px;
   flex-wrap: wrap;
 }
 
 .tag {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 4px 12px;
+  padding: 4px 10px;
   border-radius: 20px;
   font-size: 12px;
   color: #94a3b8;
-  font-weight: 500;
 }
 
 .tag-version {
@@ -462,64 +461,19 @@ footer {
   border-color: rgba(56, 189, 248, 0.2);
 }
 
-/* Miniature buttons inside Plugin Cards */
-.card-actions {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin-top: auto; /* Pushes buttons always to the bottom of the card */
+/* Eigene Info-Box-Klasse für den Text unter den Plugins */
+.plugin-info-box {
+  background: #1e293b;
+  padding: 40px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, .05);
+  margin-top: 50px;
+  clear: both;
+  text-align: left;
 }
 
-.btn-sm {
-  padding: 10px 16px;
-  font-size: 14px;
-  border-radius: 8px;
-  justify-content: center;
-}
-
-/* Live Stats Text (e.g. Total Downloads counter) */
-.live-stats {
-  font-weight: bold;
-  color: #34d399;
-  font-size: 14px;
-  margin-top: 10px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-/* Config Preview Box (Dunkles Terminal-Fenster für config.yml) */
-.config-showcase {
-  background: #0b0f19;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
-  padding: 20px;
-  margin-top: 30px;
-  font-family: 'Fira Code', 'Courier New', Courier, monospace;
-  font-size: 14px;
-  line-height: 1.5;
-  overflow-x: auto;
-  box-shadow: inset 0 4px 12px rgba(0,0,0,0.5);
-}
-
-/* Basic Syntax Highlighting for YAML preview */
-.config-showcase .comment { color: #64748b; font-style: italic; }
-.config-showcase .key { color: #f43f5e; }
-.config-showcase .value { color: #34d399; }
-.config-showcase .string { color: #e2e8f0; }
-
-/* Responsive Adjustments for new elements */
-@media (max-width: 640px) {
-  .hero .btn-group {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  
-  .platform-btn {
-    justify-content: center;
-  }
-
-  .card-actions {
-    grid-template-columns: 1fr;
-  }
+.plugin-info-box h3 {
+  font-size: 1.8rem;
+  color: white;
+  margin-bottom: 15px;
 }
