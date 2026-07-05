@@ -1,35 +1,265 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kittys Plugins</title>
-    <link rel="stylesheet" href="index.css" />
-  </head>
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitty's Plugins | High-Performance Minecraft Plugins</title>
+        <link rel="stylesheet" href="/index.css" />
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --accent-modrinth: #00af5c;
+            --accent-github: #24292e;
+            --accent-discord: #5865f2;
+            --text-color: #c9d1d9;
+            --text-bright: #f0f6fc;
+            --border-color: #30363d;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Hero Section */
+        header {
+            text-align: center;
+            padding: 60px 0 40px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            color: var(--text-bright);
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #8b949e;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+
+        /* Global Buttons */
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            color: white;
+            transition: transform 0.2s, filter 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.1);
+        }
+
+        .btn-modrinth { background-color: var(--accent-modrinth); }
+        .btn-github { background-color: var(--accent-github); border: 1px solid var(--border-color); }
+        .btn-discord { background-color: var(--accent-discord); }
+
+        /* Main Content grid */
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--text-bright);
+            margin: 40px 0 20px 0;
+            text-align: center;
+        }
+
+        .plugin-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        /* Plugin Cards */
+        .plugin-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .plugin-header h3 {
+            font-size: 1.5rem;
+            color: var(--text-bright);
+            margin-bottom: 10px;
+        }
+
+        .tag-group {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background-color: #21262d;
+            border: 1px solid var(--border-color);
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            color: #8b949e;
+        }
+
+        .tag-version { color: #58a6ff; border-color: rgba(56, 139, 253, 0.4); }
+
+        .plugin-description {
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .card-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .btn-sm {
+            padding: 8px 12px;
+            font-size: 0.9rem;
+            justify-content: center;
+        }
+
+        /* Config / Info Section */
+        .info-box {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 30px;
+            margin-top: 40px;
+        }
+
+        .info-box h3 {
+            color: var(--text-bright);
+            margin-bottom: 15px;
+        }
+
+        code-block {
+            background-color: #0d1117;
+            display: block;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            font-family: "Courier New", Courier, monospace;
+            color: #ff79c6;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
     <button class="hamburger" onclick="toggleSidebar()">☰</button>
 
     <div id="sidebar" class="sidebar">
       <a href="/">Home</a>
       <a href="/Challenge">Challenge</a>
+      <a href="/Mortality">Mortality</a>
       <a href="/Mining">Mining</a>
       <a href="/Imprint">Imprint</a>
       <a href="/Policy">Privacy Policy</a>
+    <div class="container">
+        <!-- Hero Section -->
+        <header>
+            <h1>Kitty's Plugins</h1>
+            <p>High-performance, lightweight, and fully customizable Minecraft plugins designed to elevate your server experience.</p>
+            
+            <div class="btn-group">
+                <a href="https://modrinth.com/organization/kittys-plugins" target="_blank" class="btn btn-modrinth">
+                    View Modrinth Organization
+                </a>
+                <a href="https://github.com/blackKittys3890" target="_blank" class="btn btn-github">
+                    GitHub Profile
+                </a>
+                <a href="#" class="btn btn-discord"> <!-- Add your Discord invite link here -->
+                    Join Discord Support
+                </a>
+            </div>
+        </header>
+
+        <!-- Plugins Showcase Section -->
+        <h2 class="section-title">Our Featured Plugins</h2>
+        <div class="plugin-grid">
+            
+            <!-- Plugin 1: Mining Simulator Example -->
+            <div class="plugin-card">
+                <div class="plugin-header">
+                    <h3>Mining Simulator</h3>
+                    <div class="tag-group">
+                        <span class="tag tag-version">1.20 - 1.21.x</span>
+                        <span class="tag">Paper / Purpur</span>
+                        <span class="tag">Economy</span>
+                    </div>
+                </div>
+                <p class="plugin-description">
+                    An advanced Mining Simulator featuring a built-in multi-language system (English/German), modular shop configurations, and a robust coin economy backend.
+                </p>
+                <div class="card-buttons">
+                    <a href="https://modrinth.com/organization/kittys-plugins" target="_blank" class="btn btn-sm btn-modrinth">Download</a>
+                    <a href="https://github.com/blackKittys3890/Kittys-Plugins" target="_blank" class="btn btn-sm btn-github">Source Code</a>
+                </div>
+            </div>
+
+            <!-- Plugin 2: Placeholder for your next plugin -->
+            <div class="plugin-card">
+                <div class="plugin-header">
+                    <h3>More Plugins Coming Soon</h3>
+                    <div class="tag-group">
+                        <span class="tag tag-version">Active Development</span>
+                    </div>
+                </div>
+                <p class="plugin-description">
+                    We are constantly working on open-source tools and gameplay enhancements. Follow our Modrinth organization page to get notified instantly when a new project drops!
+                </p>
+                <div class="card-buttons" style="grid-template-columns: 1fr;">
+                    <a href="https://modrinth.com/organization/kittys-plugins" target="_blank" class="btn btn-sm btn-modrinth">Follow on Modrinth</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Quick Info / Contribution Section -->
+        <div class="info-box">
+            <h3>Open Source & Community Driven</h3>
+            <p style="margin-bottom: 15px;">
+                All plugins are built with performance in mind to guarantee lag-free execution via asynchronous tasks. Since our projects are open-source, you can easily track updates, submit feature requests, or report issues directly on GitHub.
+            </p>
+            <p><strong>Found a bug or need help?</strong> Join our Discord community or open an issue on the respective GitHub repository.</p>
+        </div>
+
     </div>
-    <iframe
-      src="https://discord.com/widget?id=1486791306406527087&theme=dark"
-      width="350"
-      height="500"
-      allowtransparency="true"
-      frameborder="0"
-      sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
-    ></iframe>
-    <div
-      id="overlay"
-      class="overlay"
-      style="display: none"
-      onclick="toggleSidebar()"
-    ></div>
     <footer
       style="background: #111; color: #fff; padding: 20px; text-align: center"
     >
@@ -51,7 +281,7 @@
         </a>
       </nav>
     </footer>
-    <script>
+        <script>
       function toggleSidebar() {
         const sidebar = document.getElementById("sidebar");
         const overlay = document.getElementById("overlay");
@@ -65,5 +295,5 @@
         }
       }
     </script>
-  </body>
+</body>
 </html>
