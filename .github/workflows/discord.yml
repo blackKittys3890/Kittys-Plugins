@@ -26,7 +26,7 @@ jobs:
               embeds: [
                 {
                   title: "Website Update",
-                  description: ("**New Version available!**\n\nVersion: **" + "**\n\n**Changelog:**\n" + $message),
+                  description: ("**New Version available!**\n\ + "**\n\n**Changelog:**\n" + $message),
                   color: 5763719,
                   footer: {
                     text: "Website • https://kittys-plugins.net"
